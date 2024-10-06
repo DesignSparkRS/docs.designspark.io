@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Example Applications &mdash; DesignSpark.Cloud  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/ds-custom.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/DS_favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. API" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> DesignSpark.Cloud
+            <img src="_static/DS_logo_200w.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">1. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-DesignSpark.Cloud.Metrics">1.1. <code class="xref py py-mod docutils literal notranslate"><span class="pre">DesignSpark.Cloud.Metrics</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Example Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simple-writer-py">2.1. <code class="docutils literal notranslate"><span class="pre">simple_writer.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simple-reader-py">2.2. <code class="docutils literal notranslate"><span class="pre">simple_reader.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mqtt2dsm-py">2.3. <code class="docutils literal notranslate"><span class="pre">mqtt2dsm.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batterytest-py">2.4. <code class="docutils literal notranslate"><span class="pre">BatteryTest.py</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-switches">2.4.1. Command line switches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-explanation">2.4.2. Code explanation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DesignSpark.Cloud</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Example Applications</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/DesignSparkRS/DesignSpark.Cloud/blob/master//docs/ examples.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="example-applications">
+<h1><span class="section-number">2. </span>Example Applications<a class="headerlink" href="#example-applications" title="Permalink to this headline"></a></h1>
+<section id="simple-writer-py">
+<h2><span class="section-number">2.1. </span><code class="docutils literal notranslate"><span class="pre">simple_writer.py</span></code><a class="headerlink" href="#simple-writer-py" title="Permalink to this headline"></a></h2>
+<p>This application demonstrates the use of the <code class="docutils literal notranslate"><span class="pre">Metric</span></code> module to publish ten random values to the specified DesignSpark Cloud database.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">DesignSpark.Cloud</span> <span class="kn">import</span> <span class="n">Metrics</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">DSM_INSTANCE</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">DSM_KEY</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">DSM_URL</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Metrics</span><span class="o">.</span><span class="n">Metric</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">DSM_INSTANCE</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">DSM_KEY</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">DSM_URL</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+	<span class="n">status</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;test_metric&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="s2">&quot;label1&quot;</span><span class="p">:</span><span class="s2">&quot;this_label&quot;</span><span class="p">,</span> <span class="s2">&quot;label2&quot;</span><span class="p">:</span><span class="s2">&quot;that_label&quot;</span><span class="p">})</span>
+	<span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Successfully posted&quot;</span><span class="p">)</span>
+	<span class="k">elif</span> <span class="n">status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unsuccessful post, result </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">))</span>
+	<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The application first imports the necessary modules, then configures an instance of the <code class="docutils literal notranslate"><span class="pre">Metric</span></code> class with provided DSM credentials. Ten data points with random values and a metric name of “test_metric” are published over the course of ten seconds.</p>
+<p>The write function expects a dictionary containing at the bare minimum keys called “name” and “value” which hold the metric name and value. Labels can be included where the key name is the label name — in this example two keys with names “label1” and “label2” are included.</p>
+<p>A success message is printed on every successful post, otherwise an error message containing the status from <code class="docutils literal notranslate"><span class="pre">metric.write</span></code> is printed.</p>
+</section>
+<section id="simple-reader-py">
+<h2><span class="section-number">2.2. </span><code class="docutils literal notranslate"><span class="pre">simple_reader.py</span></code><a class="headerlink" href="#simple-reader-py" title="Permalink to this headline"></a></h2>
+<p>This application demonstrates the use of the <a class="reference external" href="https://pypi.org/project/prometheus-api-client/">prometheus-api-client</a> module to read metrics from DesignSpark Cloud.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">DesignSpark.Cloud</span> <span class="kn">import</span> <span class="n">Metrics</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">prometheus_api_client</span> <span class="kn">import</span> <span class="n">PrometheusConnect</span><span class="p">,</span> <span class="n">MetricsList</span>
+
+<span class="n">DSM_INSTANCE</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">DSM_KEY</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">DSM_URL</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Metrics</span><span class="o">.</span><span class="n">Metric</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">DSM_INSTANCE</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">DSM_KEY</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">DSM_URL</span><span class="p">)</span>
+
+<span class="n">reader_uri</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">getReadURI</span><span class="p">()</span>
+
+<span class="n">reader</span> <span class="o">=</span> <span class="n">PrometheusConnect</span><span class="p">(</span><span class="n">reader_uri</span><span class="p">)</span>
+
+<span class="n">metricData</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">get_metric_range_data</span><span class="p">(</span><span class="n">metric_name</span><span class="o">=</span><span class="s2">&quot;test_metric&quot;</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span> <span class="n">end_time</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+<span class="n">metricList</span> <span class="o">=</span> <span class="n">MetricsList</span><span class="p">(</span><span class="n">metricData</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">metricList</span><span class="p">:</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The application imports both the <code class="docutils literal notranslate"><span class="pre">Metric</span></code> module and also <code class="docutils literal notranslate"><span class="pre">prometheus_api_client</span></code> which provides functions for retrieving and manipulating metrics.</p>
+<p>The metric class is instantiated just as before in the <code class="docutils literal notranslate"><span class="pre">simple_writer.py</span></code> example, and the function <code class="docutils literal notranslate"><span class="pre">metric.getReadURI()</span></code> is called. This function returns a URI that can be passed into an instance of <code class="docutils literal notranslate"><span class="pre">prometheus_api_client.prometheus_connect.PrometheusConnect()</span></code> that will then connect to the DesignSpark Cloud using the provided credentials.</p>
+<p>A metric series called “test_metric” (the same as what is written in <code class="docutils literal notranslate"><span class="pre">simple_writer.py</span></code>) is retrieved with a start and end date provided. A number of additional arguments are available, which are described in the <a class="reference external" href="https://prometheus-api-client-python.readthedocs.io/en/master/source/prometheus_api_client.html">prometheus_api_client</a> documentation.</p>
+</section>
+<section id="mqtt2dsm-py">
+<h2><span class="section-number">2.3. </span><code class="docutils literal notranslate"><span class="pre">mqtt2dsm.py</span></code><a class="headerlink" href="#mqtt2dsm-py" title="Permalink to this headline"></a></h2>
+<p>This application demonstrates a practical use of the Metric module to write data from specified MQTT topics to DesignSpark Cloud, utilising the <code class="docutils literal notranslate"><span class="pre">paho-mqtt</span></code> library to connect to a broker.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>			<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error publishing! Reason </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+	<span class="k">global</span> <span class="n">PROMETHEUS_CONFIG</span><span class="p">,</span> <span class="n">TOPICS_CONFIG</span><span class="p">,</span> <span class="n">MQTT_CONFIG</span><span class="p">,</span> <span class="n">writer</span>
+	<span class="n">client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">mqtt_connect</span>
+	<span class="n">client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">mqtt_message</span>
+
+	<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">CONFIG_FILE</span><span class="p">)</span> <span class="k">as</span> <span class="n">fileHandle</span><span class="p">:</span>
+		<span class="n">fileData</span> <span class="o">=</span> <span class="n">fileHandle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+	<span class="n">configData</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">fileData</span><span class="p">)</span>
+
+	<span class="n">DSM_CONFIG</span> <span class="o">=</span> <span class="n">configData</span><span class="p">[</span><span class="s1">&#39;dsm&#39;</span><span class="p">]</span>
+	<span class="n">TOPICS_CONFIG</span> <span class="o">=</span> <span class="n">configData</span><span class="p">[</span><span class="s1">&#39;topics&#39;</span><span class="p">]</span>
+	<span class="n">MQTT_CONFIG</span> <span class="o">=</span> <span class="n">configData</span><span class="p">[</span><span class="s1">&#39;mqtt&#39;</span><span class="p">]</span>
+
+	<span class="n">writer</span> <span class="o">=</span> <span class="n">Metrics</span><span class="o">.</span><span class="n">Metric</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">DSM_CONFIG</span><span class="p">[</span><span class="s1">&#39;instance&#39;</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="n">DSM_CONFIG</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">],</span> <span class="n">url</span><span class="o">=</span><span class="n">DSM_CONFIG</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">])</span>
+
+	<span class="k">if</span> <span class="s2">&quot;username&quot;</span> <span class="ow">and</span> <span class="s2">&quot;password&quot;</span> <span class="ow">in</span> <span class="n">MQTT_CONFIG</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+		<span class="n">client</span><span class="o">.</span><span class="n">username_pw_set</span><span class="p">(</span><span class="n">MQTT_CONFIG</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">],</span> <span class="n">MQTT_CONFIG</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">])</span>
+
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">main()</span></code> function in the program first registers two callbacks with the instantiated MQTT client for when a successful connection is made, and when an MQTT message is received. A JSON formatted configuration file is then loaded, and the Metric object and MQTT client configured based on provided values. The MQTT client then connects and spins in a loop waiting for incoming messages on subscribed topics.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mqtt_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+	<span class="k">global</span> <span class="n">TOPICS_CONFIG</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Successfully connected to MQTT broker&quot;</span><span class="p">)</span>
+
+	<span class="n">topics</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">TOPICS_CONFIG</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+	<span class="c1"># Subscribe method expects a list of tuples containing (topic, QoS)</span>
+	<span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">([(</span><span class="n">topic</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">])</span>
+
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Successfully subscribed to all topics&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">mqtt_connect</span></code> callback handles subscribing to the provided topics using list comprehension to create a list of tuples as required by the <code class="docutils literal notranslate"><span class="pre">subscribe</span></code> method.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mqtt_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+	<span class="k">global</span> <span class="n">TOPICS_CONFIG</span>
+	<span class="n">payload</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received MQTT message from topic </span><span class="si">{}</span><span class="s2"> with payload </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">))</span>
+
+	<span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">topic</span> <span class="ow">in</span> <span class="n">TOPICS_CONFIG</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+		<span class="n">metricsData</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">TOPICS_CONFIG</span><span class="p">[</span><span class="n">msg</span><span class="o">.</span><span class="n">topic</span><span class="p">])</span>
+
+		<span class="k">if</span> <span class="s2">&quot;labels&quot;</span> <span class="ow">in</span> <span class="n">metricsData</span><span class="p">:</span>
+			<span class="n">labelData</span> <span class="o">=</span> <span class="n">metricsData</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">labelData</span> <span class="o">=</span> <span class="p">{}</span>
+
+		<span class="n">metricName</span> <span class="o">=</span> <span class="n">metricsData</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;metric&quot;</span><span class="p">)</span>
+
+		<span class="n">prometheusData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">metricName</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">payload</span><span class="p">}</span>
+		<span class="n">prometheusData</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">labelData</span><span class="p">)</span>
+
+		<span class="n">status</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">prometheusData</span><span class="p">)</span>
+
+		<span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+			<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Successfully published to Prometheus&quot;</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error publishing! Reason </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">mqtt_message</span></code> function publishes MQTT values to the DesignSpark Cloud. A sanity check is first performed to ensure the topic is present in the configuration file, then a copy of the topic data is made ready to have values inserted and removed. The <code class="docutils literal notranslate"><span class="pre">metric</span></code> key from the configuration is popped and inserted into a new dictionary under the correct <code class="docutils literal notranslate"><span class="pre">name</span></code> key required by the <code class="docutils literal notranslate"><span class="pre">Metric</span></code> module. The <code class="docutils literal notranslate"><span class="pre">value</span></code> key is then set to the received MQTT message payload, and the data point then published to the cloud.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="s2">&quot;mqtt&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s2">&quot;broker&quot;</span><span class="p">:</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">1883</span>
+	<span class="p">},</span>
+</pre></div>
+</div>
+<p>Within the configuration file multiple JSON objects are present. The <code class="docutils literal notranslate"><span class="pre">mqtt</span></code> object at minimum needs to include keys called <code class="docutils literal notranslate"><span class="pre">broker</span></code> and <code class="docutils literal notranslate"><span class="pre">port</span></code> which sets the MQTT broker address and port. Optional keys include <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code> should the broker require authentication.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="s2">&quot;dsm&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;instance&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+		<span class="s2">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+	<span class="p">},</span>
+</pre></div>
+</div>
+<p>A section called <code class="docutils literal notranslate"><span class="pre">dsm</span></code> is mandatory and must contains keys called <code class="docutils literal notranslate"><span class="pre">url</span></code>, <code class="docutils literal notranslate"><span class="pre">instance</span></code> and <code class="docutils literal notranslate"><span class="pre">key</span></code> which are provided by DesignSpark Cloud when registering. The authentication key must have permission to write data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="s2">&quot;topics&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s2">&quot;sensors/bedroom/temperature&quot;</span><span class="p">:</span> <span class="p">{</span>
+			<span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;bedroom_temperature&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="p">{</span>
+				<span class="s2">&quot;room&quot;</span><span class="p">:</span> <span class="s2">&quot;bedroom&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;sensorType&quot;</span><span class="p">:</span> <span class="s2">&quot;temperature&quot;</span><span class="p">,</span>
+				<span class="s2">&quot;sensorId&quot;</span><span class="p">:</span> <span class="mi">1</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+</pre></div>
+</div>
+<p>The final section is called <code class="docutils literal notranslate"><span class="pre">topics</span></code> and contains a number of objects where the object key is the MQTT topic to be subscribed to — in the example we’ve used <code class="docutils literal notranslate"><span class="pre">sensors/bedroom/temperature</span></code>. Each topic object must contain a key called <code class="docutils literal notranslate"><span class="pre">metric</span></code> which is the name of the metric. An optional section called <code class="docutils literal notranslate"><span class="pre">labels</span></code> can be included which then becomes labels on the data point within DesignSpark Cloud.</p>
+</section>
+<section id="batterytest-py">
+<h2><span class="section-number">2.4. </span><code class="docutils literal notranslate"><span class="pre">BatteryTest.py</span></code><a class="headerlink" href="#batterytest-py" title="Permalink to this headline"></a></h2>
+<p>This application interfaces with an RS Pro electronic load to perform battery discharge tests and logs data to DesignSpark Cloud.</p>
+<section id="command-line-switches">
+<h3><span class="section-number">2.4.1. </span>Command line switches<a class="headerlink" href="#command-line-switches" title="Permalink to this headline"></a></h3>
+<p>A number of command line switches are present</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 37%" />
+<col style="width: 6%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Short name</p></th>
+<th class="head"><p>Long name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-d</p></td>
+<td><p>–device</p></td>
+<td><p>The PyVISA device string</p></td>
+<td><p>String</p></td>
+<td><p>-d “ASRL6::INSTR”</p></td>
+</tr>
+<tr class="row-odd"><td><p>-b</p></td>
+<td><p>–baud</p></td>
+<td><p>The PyVISA device baud rate</p></td>
+<td><p>Integer</p></td>
+<td><p>-b 115200</p></td>
+</tr>
+<tr class="row-even"><td><p>-c</p></td>
+<td><p>–capacity</p></td>
+<td><p>The battery capacity to discharge to in amp-hours</p></td>
+<td><p>Integer</p></td>
+<td><p>-c 110</p></td>
+</tr>
+<tr class="row-odd"><td><p>-a</p></td>
+<td><p>–amperage</p></td>
+<td><p>The discharge current in amps</p></td>
+<td><p>Float</p></td>
+<td><p>-a 5</p></td>
+</tr>
+<tr class="row-even"><td><p>-v</p></td>
+<td><p>–voltage</p></td>
+<td><p>The low voltage cut off point in volts</p></td>
+<td><p>Float</p></td>
+<td><p>-v 10.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>-t</p></td>
+<td><p>–time</p></td>
+<td><p>Time to discharge cut off in minutes</p></td>
+<td><p>Integer</p></td>
+<td><p>-t 10</p></td>
+</tr>
+<tr class="row-even"><td><p>-i</p></td>
+<td><p>–instance</p></td>
+<td><p>DesignSpark Cloud instance</p></td>
+<td><p>String</p></td>
+<td><p>-i 123456</p></td>
+</tr>
+<tr class="row-odd"><td><p>-u</p></td>
+<td><p>–url</p></td>
+<td><p>DesignSpark Cloud URL</p></td>
+<td><p>String</p></td>
+<td><p>-u “<a class="reference external" href="https://prometheus-prod-01-eu-west-0.grafana.net">https://prometheus-prod-01-eu-west-0.grafana.net</a>”</p></td>
+</tr>
+<tr class="row-even"><td><p>-k</p></td>
+<td><p>–key</p></td>
+<td><p>DesignSpark Cloud key</p></td>
+<td><p>String</p></td>
+<td><p>-k “YOUR_AUTHENTICATION_KEY”</p></td>
+</tr>
+<tr class="row-odd"><td><p>-n</p></td>
+<td><p>–name</p></td>
+<td><p>Battery name label</p></td>
+<td><p>String</p></td>
+<td><p>-n “Battery123”</p></td>
+</tr>
+</tbody>
+</table>
+<p>An example command: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">BatteryTest.py</span> <span class="pre">-d</span> <span class="pre">&quot;ASRL6::INSTR&quot;</span> <span class="pre">-b</span> <span class="pre">115200</span> <span class="pre">-c</span> <span class="pre">10</span> <span class="pre">-a</span> <span class="pre">2.5</span> <span class="pre">-t</span> <span class="pre">10</span> <span class="pre">-v</span> <span class="pre">10.5</span> <span class="pre">-i</span> <span class="pre">123456</span> <span class="pre">-k</span> <span class="pre">&quot;YOUR_AUTH_KEY&quot;</span> <span class="pre">-u</span> <span class="pre">&quot;https://prometheus-prod-01-eu-west-0.grafana.net&quot;</span> <span class="pre">-n</span> <span class="pre">&quot;batterytest&quot;</span></code></p>
+</section>
+<section id="code-explanation">
+<h3><span class="section-number">2.4.2. </span>Code explanation<a class="headerlink" href="#code-explanation" title="Permalink to this headline"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="k">try</span><span class="p">:</span>
+		<span class="n">rm</span> <span class="o">=</span> <span class="n">pyvisa</span><span class="o">.</span><span class="n">ResourceManager</span><span class="p">(</span><span class="s1">&#39;@py&#39;</span><span class="p">)</span>
+		<span class="n">load</span> <span class="o">=</span> <span class="n">rm</span><span class="o">.</span><span class="n">open_resource</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+		<span class="n">load</span><span class="o">.</span><span class="n">baud_rate</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">baud</span>
+		<span class="n">device_idn</span> <span class="o">=</span> <span class="n">load</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*IDN?&#39;</span><span class="p">)</span>
+		<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Device identifier: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device_idn</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+	<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+		<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Could not establish device connection, reason </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+		<span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The script first attempts to parse all the required command line arguments, then creates an object for communicating with the instrument. An instrument query <code class="docutils literal notranslate"><span class="pre">*IDN?</span></code> is executed that asks the instrument to identify itself, which is then printed to the console.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="k">try</span><span class="p">:</span>
+		<span class="n">batt_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;:BATT 1,</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">amperage</span> <span class="o">+</span> <span class="mi">3</span><span class="si">}</span><span class="s2">A,</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">amperage</span><span class="si">}</span><span class="s2">A,</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">voltage</span><span class="si">}</span><span class="s2">V,</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">capacity</span><span class="si">}</span><span class="s2">AH,</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2">M&quot;</span>
+		<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Setting battery mode to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">batt_string</span><span class="p">))</span>
+		<span class="n">load</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">batt_string</span><span class="p">)</span>
+		<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+		<span class="n">load</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:RCL:BATT 1&#39;</span><span class="p">)</span>
+		<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+		<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Turning on input&quot;</span><span class="p">)</span>
+		<span class="n">load</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;:INP ON&#39;</span><span class="p">)</span>
+	<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+		<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Failed configuring and enabling instrument, reason </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>A string is compiled that attempts to program a battery test regime on the electronic load, sent to the instrument and the input turned on which starts the discharge programme.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="k">while</span> <span class="n">load</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:INP?&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;ON</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+		<span class="n">capacity_list</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="n">voltage_list</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="n">current_list</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">):</span>
+			<span class="k">if</span> <span class="n">load</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:INP?&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;ON</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+				<span class="n">batt_capacity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">load</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:BATT:CAP?&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>
+				<span class="n">capacity_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batt_capacity</span><span class="p">)</span>
+				<span class="n">batt_time</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">load</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:BATT:TIM?&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+				<span class="n">batt_voltage</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">load</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:MEAS:VOLT?&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span>
+				<span class="n">voltage_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batt_voltage</span><span class="p">)</span>
+				<span class="n">batt_current</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">load</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:MEAS:CURR?&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span>
+				<span class="n">current_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batt_current</span><span class="p">)</span>
+
+				<span class="n">batt_mins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">batt_time</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span> <span class="o">%</span> <span class="mi">60</span><span class="p">)</span>
+				<span class="n">batt_secs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">batt_time</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)</span> <span class="o">%</span> <span class="mi">60</span><span class="p">)</span>
+				<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Capacity: </span><span class="si">{}</span><span class="s2">Ah, voltage: </span><span class="si">{}</span><span class="s2">, current: </span><span class="si">{}</span><span class="s2">, time: </span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">batt_capacity</span><span class="p">,</span> <span class="n">batt_voltage</span><span class="p">,</span> <span class="n">batt_current</span><span class="p">,</span> <span class="n">batt_mins</span><span class="p">,</span> <span class="n">batt_secs</span><span class="p">))</span>
+				<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">break</span>
+</pre></div>
+</div>
+<p>The instrument is polled once every second whilst the input is switched on, with readings of current capacity, voltage and current added to a list to be averaged. All the information is logged to the console.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>		<span class="k">if</span> <span class="n">load</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;:INP?&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;ON</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+			<span class="n">capacity</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">capacity_list</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">capacity_list</span><span class="p">)</span>
+			<span class="n">status</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;batt_capacity&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="n">capacity</span><span class="p">,</span> <span class="s2">&quot;battery_name&quot;</span><span class="p">:</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="p">})</span>
+			<span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+				<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successfully published capacity to Prometheus&quot;</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error publishing! Reason </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">))</span>
+
+			<span class="n">voltage</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">voltage_list</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">voltage_list</span><span class="p">)</span>
+			<span class="n">status</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;batt_voltage&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="n">voltage</span><span class="p">,</span> <span class="s2">&quot;battery_name&quot;</span><span class="p">:</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="p">})</span>
+			<span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+				<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successfully published voltage to Prometheus&quot;</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error publishing! Reason </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">))</span>
+
+			<span class="n">current</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">current_list</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_list</span><span class="p">)</span>
+			<span class="n">status</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;batt_current&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="n">current</span><span class="p">,</span> <span class="s2">&quot;battery_name&quot;</span><span class="p">:</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="p">})</span>
+			<span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+				<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successfully published current to Prometheus&quot;</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error publishing! Reason </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Once every minute an average of the last sixty seconds of data points is computed and published to DesignSpark Cloud.</p>
+<p>The while loop exits once the input is turned off, which is automatically performed by the instrument when a cut off point is achieved (one or more of voltage, capacity or time). After the loop exits one last set of queries is made to the instrument to get capacity and time, which is then published to DesignSpark Cloud. This information is also mirrored to the console.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="1. API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, RS Components.
+      <span class="lastupdated">Last updated on Oct 06, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

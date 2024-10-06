@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.1.1. Main Board (Main) &mdash; Environmental Sensor Development Kit  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/ds-custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/DS_favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.1.2. Sensor Chain Adapter (PEA)" href="pea.html" />
+    <link rel="prev" title="1. ESDK System" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Environmental Sensor Development Kit
+            <img src="../_static/DS_logo_200w.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">1. System</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#modules">1.1. Modules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.1.1. Main Board (Main)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">1.1.1.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schematic-diagram">1.1.1.2. Schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#theory-of-operation">1.1.1.3. Theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#board-layout">1.1.1.4. Board layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpio-assignments">1.1.1.5. GPIO Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pea.html">1.1.2. Sensor Chain Adapter (PEA)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pea.html#introduction">1.1.2.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pea.html#schematic-diagram">1.1.2.2. Schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pea.html#theory-of-operation">1.1.2.3. Theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pea.html#board-layout">1.1.2.4. Board layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="thv.html">1.1.3. Temperature, humidity and VOCs Sensor (THV)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="thv.html#introduction">1.1.3.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thv.html#schematic-diagram">1.1.3.2. Schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thv.html#theory-of-operation">1.1.3.3. Theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thv.html#board-layout">1.1.3.4. Board layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="co2.html">1.1.4. Carbon Dioxide Sensor (CO2)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="co2.html#introduction">1.1.4.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="co2.html#schematic-diagram">1.1.4.2. Schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="co2.html#theory-of-operation">1.1.4.3. Theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="co2.html#board-layout">1.1.4.4. Board layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pm2.html">1.1.5. Particulate Matter Sensor (PM2)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pm2.html#introduction">1.1.5.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pm2.html#schematic-diagram">1.1.5.2. Schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pm2.html#theory-of-operation">1.1.5.3. Theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pm2.html#board-layout">1.1.5.4. Board layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="no2.html">1.1.6. Nitrogen Dioxide Sensor (NO2)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="no2.html#introduction">1.1.6.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="no2.html#schematic-diagram">1.1.6.2. Schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="no2.html#theory-of-operation">1.1.6.3. Theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="no2.html#board-layout">1.1.6.4. Board layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fdh.html">1.1.7. Formaldehyde Sensor (FDH)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fdh.html#introduction">1.1.7.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fdh.html#schematic-diagram">1.1.7.2. Schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fdh.html#theory-of-operation">1.1.7.3. Theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fdh.html#board-layout">1.1.7.4. Board layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nrd.html">1.1.8. Nuclear Radiation Detector (NRD)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nrd.html#introduction">1.1.8.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nrd.html#schematic-diagram">1.1.8.2. Schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nrd.html#theory-of-operation">1.1.8.3. Theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nrd.html#board-layout">1.1.8.4. Board layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cre.html">1.1.9. Cabled Range Extender (CRE)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cre.html#introduction">1.1.9.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cre.html#cre-a-schematic-diagram">1.1.9.2. CRE-A schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cre.html#cre-a-theory-of-operation">1.1.9.3. CRE-A theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cre.html#cre-a-board-layout">1.1.9.4. CRE-A board layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cre.html#cre-b-schematic-diagram">1.1.9.5. CRE-B schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cre.html#cre-b-theory-of-operation">1.1.9.6. CRE-B theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cre.html#cre-b-board-layout">1.1.9.7. CRE-B board layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="eea.html">1.1.10. ESDK Ecosystem Adapter (EEA)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eea.html#introduction">1.1.10.1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="eea.html#schematic-diagram">1.1.10.2. Schematic diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="eea.html#theory-of-operation">1.1.10.3. Theory of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="eea.html#board-layout">1.1.10.4. Board layout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../specification.html">2. Specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../specification.html#physical">2.1. Physical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../specification.html#connectors">2.2. Connectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../specification.html#power">2.3. Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../specification.html#i-o">2.4. I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../specification.html#addressing">2.5. Addressing</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Environmental Sensor Development Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html"><span class="section-number">1. </span>ESDK System</a> &raquo;</li>
+      <li><span class="section-number">1.1.1. </span>Main Board (Main)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/DesignSparkRS/ESDK/blob/master//docs/ modules/main.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="main-board-main">
+<h1><span class="section-number">1.1.1. </span>Main Board (Main)<a class="headerlink" href="#main-board-main" title="Permalink to this headline"></a></h1>
+<img alt="ESDK Main board" src="../_images/ESDK-Main.jpg" />
+<section id="introduction">
+<h2><span class="section-number">1.1.1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<p>The Main board plugs into a Raspberry Pi SBC and provides:</p>
+<ul class="simple">
+<li><p>Touch screen</p></li>
+<li><p>Four physical buttons</p></li>
+<li><p>Battery backed real-time clock (RTC)</p></li>
+<li><p>Battery backed GPS</p></li>
+<li><p>Buzzer (from board v0.3 onwards)</p></li>
+<li><p>Sensor chain 3.3V and 5V power supply (from board v0.3 this is switched by MOSFETs under software control)</p></li>
+<li><p>Connector for cable to <a class="reference internal" href="pea.html"><span class="doc">Sensor Chain Adapter (PEA)</span></a></p></li>
+</ul>
+</section>
+<section id="schematic-diagram">
+<h2><span class="section-number">1.1.1.2. </span>Schematic diagram<a class="headerlink" href="#schematic-diagram" title="Permalink to this headline"></a></h2>
+<img alt="ESDK Main schematic diagram" src="../_images/ESDK-Main-Schematic.svg" /></section>
+<section id="theory-of-operation">
+<h2><span class="section-number">1.1.1.3. </span>Theory of operation<a class="headerlink" href="#theory-of-operation" title="Permalink to this headline"></a></h2>
+<p>The ESDK-MAIN board connects a number of peripherals to a Raspberry Pi P1 GPIO header including a 320x240 touchscreen over SPI and I2C, a battery-backed RTC connected over I2C, a GPS module connected over a UART (also supporting a 5V active antenna), four front panel buttons connected to GPIO lines, 3.3V and 5V sensor power rails switched by MOSFETs (from board v0.3 onwards), an on-board “HAT” EEPROM connected over I2C and USB-C for 5V power input.</p>
+<p>The LCD, touchscreen, RTC and HAT EEPROM connect to I2C 0 on the Raspberry Pi, whereas the sensor string is connected to I2C 1 — this separation aims to avoid issues with the sensor string affecting operation of “system” devices. LCD backlight control is supported in software with further tweaks to the device tree overlay; GPIO 12 does support PWM to be able to adjust the brightness.</p>
+<p>A 8-pin Molex PicoBlade connector is present for connection to the ESDK-PEA board that provides an external connector for the sensor modules.</p>
+<p>For potential future use, a 5-pin Molex Pico-Lock connector can be used to enable battery expansion. This connector features the 5V rail inbound from the USB-C port, a 5V rail that heads out to the board plus a connection to I2C 0 for smart battery monitoring.</p>
+</section>
+<section id="board-layout">
+<h2><span class="section-number">1.1.1.4. </span>Board layout<a class="headerlink" href="#board-layout" title="Permalink to this headline"></a></h2>
+<img alt="ESDK Main board layout" src="../_images/ESDK-Main-Layout.png" />
+</section>
+<section id="gpio-assignments">
+<h2><span class="section-number">1.1.1.5. </span>GPIO Assignments<a class="headerlink" href="#gpio-assignments" title="Permalink to this headline"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 69%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ESDK-MAIN Function</p></th>
+<th class="head"><p>Raspberry Pi GPIO</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TOUCH_RST</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>TOUCH_INT</p></td>
+<td><p>17</p></td>
+</tr>
+<tr class="row-even"><td><p>GPS_RESET</p></td>
+<td><p>27</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPS_STBY</p></td>
+<td><p>22</p></td>
+</tr>
+<tr class="row-even"><td><p>GPS_PPS</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-odd"><td><p>BUTTON_1 (closest to board bottom)</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>BUTTON_2</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>BUTTON_3</p></td>
+<td><p>13</p></td>
+</tr>
+<tr class="row-even"><td><p>BUTTON_4 (closest to board top)</p></td>
+<td><p>19</p></td>
+</tr>
+<tr class="row-odd"><td><p>LCD_RST</p></td>
+<td><p>24</p></td>
+</tr>
+<tr class="row-even"><td><p>LCD_DC</p></td>
+<td><p>25</p></td>
+</tr>
+<tr class="row-odd"><td><p>LCD_BL</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td><p>GPIO_1</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO_2</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-even"><td><p>SENSOR_3V3_EN (only used on later boards)</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>SENSOR_5V_EN (only used on later boards)</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td><p>BUZZER (only used on later boards)</p></td>
+<td><p>26</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>The touchscreen I2C interface is connected to I2C 0</p></li>
+<li><p>The module I2C interface is connected to I2C 1</p></li>
+<li><p>The LCD is connected to SPI 0</p></li>
+<li><p>The GPS is connected to UART “serial0” which is the hardware UART on the Raspberry Pi</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="1. ESDK System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pea.html" class="btn btn-neutral float-right" title="1.1.2. Sensor Chain Adapter (PEA)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, RS Components.
+      <span class="lastupdated">Last updated on Oct 06, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

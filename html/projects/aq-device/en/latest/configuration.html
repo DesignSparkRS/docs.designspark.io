@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Configuration &mdash; Air Quality Device  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/ds-custom.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/DS_favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Use" href="use.html" />
+    <link rel="prev" title="1. Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Air Quality Device
+            <img src="_static/DS_logo_200w.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#editing">2.1. Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base-config">2.2. Base config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory">2.2.1. Mandatory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional">2.2.2. Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sensor-config">2.3. Sensor config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#no2">2.3.1. NO2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gps">2.4. GPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#csv-logging">2.5. CSV logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mqtt">2.6. MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloud-integration">2.7. Cloud integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#private-dashboards">2.7.1. Private dashboards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#public-dashboards">2.7.2. Public dashboards</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#complete-example">2.8. Complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="use.html">3. Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="use.html#basic">3.1. Basic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="use.html#device-dashboard">3.1.1. Device dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use.html#lan-dashboard">3.1.2. LAN dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use.html#csv-logging">3.1.3. CSV logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use.html#gps">3.1.4. GPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use.html#shutting-down">3.1.5. Shutting down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use.html#restarting">3.1.6. Restarting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="use.html#mqtt">3.2. MQTT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">4. Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#status">4.1. Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#debug-mode">4.2. Debug mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#typical-problems">4.3. Typical problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">5. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#user-account">5.1. User account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#mqtt">5.2. MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#websocket-api">5.3. WebSocket API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Air Quality Device</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/DesignSparkRS/aq-device/blob/master//docs/ configuration.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration">
+<h1><span class="section-number">2. </span>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h1>
+<section id="editing">
+<h2><span class="section-number">2.1. </span>Editing<a class="headerlink" href="#editing" title="Permalink to this headline"></a></h2>
+<p>There are two options for editing the configuration:</p>
+<ol class="arabic simple">
+<li><p>Insert the Micro SD card into another computer and use this to edit the config.</p></li>
+<li><p>Insert the Micro SD card into the Raspberry Pi, boot and then edit the config via an SSH connection.</p></li>
+</ol>
+<p>The hostname is set to <code class="code docutils literal notranslate"><span class="pre">airquality</span></code> and since mDNS is configured, it should be possible to connect via SSH using <code class="code docutils literal notranslate"><span class="pre">airquality.local</span></code>.</p>
+<p>The username and password are set to the Raspberry Pi OS defaults of <code class="code docutils literal notranslate"><span class="pre">pi</span></code> and <code class="code docutils literal notranslate"><span class="pre">raspberry</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The configuration file is located on the <code class="code docutils literal notranslate"><span class="pre">/boot</span></code> partition and since this is formatted using the fat32 filesystem, it means that it can be mounted for editing on Windows, Linux and Mac computers.</p>
+</div>
+<p>Using your favourite editor, create a new file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">aq</span><span class="o">/</span><span class="n">aq</span><span class="o">.</span><span class="n">toml</span>
+</pre></div>
+</div>
+<p>Or if you went with option 1 and are using another computer, whatever path the boot partition is mounted to.</p>
+<p>The configuration is broken up into sections each with a heading. Values that are strings are quoted, whereas numbers and boolean values are not.</p>
+</section>
+<section id="base-config">
+<h2><span class="section-number">2.2. </span>Base config<a class="headerlink" href="#base-config" title="Permalink to this headline"></a></h2>
+<p>Basic device configation is located within the <code class="code docutils literal notranslate"><span class="pre">[ESDK]</span></code> section.</p>
+<section id="mandatory">
+<h3><span class="section-number">2.2.1. </span>Mandatory<a class="headerlink" href="#mandatory" title="Permalink to this headline"></a></h3>
+<p>Example config:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">ESDK</span><span class="p">]</span>
+<span class="n">friendlyname</span> <span class="o">=</span> <span class="s2">&quot;acmecorp&quot;</span>
+<span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;workshop&quot;</span>
+<span class="n">latitude</span> <span class="o">=</span> <span class="mf">53.7130128</span>
+<span class="n">longitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.9391832</span>
+<span class="n">debug</span> <span class="o">=</span> <span class="n">false</span>
+</pre></div>
+</div>
+<table class="colwidths-auto docutils align-default" id="id1">
+<caption><span class="caption-text">Mandatory parameters</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">friendlyname</span></code></p></td>
+<td><p>A short and informative name for the device</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">location</span></code></p></td>
+<td><p>Position within a property or outside</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">latitude</span></code> &amp; <code class="code docutils literal notranslate"><span class="pre">longitude</span></code></p></td>
+<td><p>Geolocation a.k.a. “GPS position”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">debug</span></code></p></td>
+<td><p>Logging level (set to false unless experiencing issues)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Try to pick something unique for the <code class="code docutils literal notranslate"><span class="pre">friendlyname</span></code>. This is not
+essential, but will be helpful in debugging any issues and when it comes to
+organising collaborative projects.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">friendlyname</span></code> must not be changed without good reason, as this is used as the key for constructing visualisations and whenever this is changed, series data and hence plots etc. will become non-contigious.</p>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">location</span></code> should be set to e.g. “kitchen”, “livingroom” or “outdoor”
+etc. A taxonomy has been created and for details, see the <a class="reference external" href="https://docs.designspark.io/en/latest/aq/taxonomy.html" title="(in DesignSpark Documentation)"><span class="xref std std-doc">Air Quality Project
+Taxonomy</span></a>. Please be sure to pick a location from this list,
+so as to avoid having multiple different labels in use for the same location,
+which will be important when it comes to interpreting data.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">location</span></code> must be set to “mixed” if using the Cabled Range Extender boards and there are sensor chains in two different locations.</p>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="code docutils literal notranslate"><span class="pre">longitude</span></code> should be set according to the
+geolocation. While there are no plans to show data from individual sensors at
+private residences in public dashboards, you may still decide that you are not
+comfortable with disclosing your precise location. In which case it is suggested
+to use the coordinates for the end of the street or perhaps the nearest town.
+However, it is important that the configured and actual location are not too far
+apart, otherwise this may compromise the usefulness of data gathered.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The values for friendlyname and location may contain letters, numbers and underscores only and should be no more than 12 characters in length.</p>
+</div>
+</section>
+<section id="optional">
+<h3><span class="section-number">2.2.2. </span>Optional<a class="headerlink" href="#optional" title="Permalink to this headline"></a></h3>
+<p>Example config for optional parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tag</span> <span class="o">=</span> <span class="s2">&quot;unheated&quot;</span>
+<span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;makerspace&quot;</span>
+</pre></div>
+</div>
+<table class="colwidths-auto docutils align-default" id="id2">
+<caption><span class="caption-text">Optional parameters</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">tag</span></code></p></td>
+<td><p>A useful additional tag/label for the device</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">project</span></code></p></td>
+<td><p>Identifier for a collaborative project</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="code docutils literal notranslate"><span class="pre">tag</span></code> parameter can be used to help distinguish data published to a
+cloud platform. For example, you may wish to create a visualisation which groups
+measurements for sensors in heated vs. unheated rooms. If unsure, don’t set this
+and it can always be configured later.</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">project</span></code> parameter is used to identify devices which belong to a
+particular DesignSpark Air Quality collaborative project. <strong>This should not be
+set unless instructed to do so.</strong></p>
+<p>If configured, the values for <code class="code docutils literal notranslate"><span class="pre">tag</span></code> and <code class="code docutils literal notranslate"><span class="pre">project</span></code> will be set as
+additional labels on measurements, alongside <code class="code docutils literal notranslate"><span class="pre">friendlyname</span></code>,
+<code class="code docutils literal notranslate"><span class="pre">location</span></code>, <code class="code docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="code docutils literal notranslate"><span class="pre">longitude</span></code>, when publishing data
+to the cloud.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The values for tag and project may contain letters, numbers and underscores only, and should be no more than 12 characters in length.</p>
+</div>
+</section>
+</section>
+<section id="sensor-config">
+<h2><span class="section-number">2.3. </span>Sensor config<a class="headerlink" href="#sensor-config" title="Permalink to this headline"></a></h2>
+<p>Most sensors don’t require any configuration, but some may have optional or mandatory config parameters.</p>
+<section id="no2">
+<h3><span class="section-number">2.3.1. </span>NO2<a class="headerlink" href="#no2" title="Permalink to this headline"></a></h3>
+<p>NO2 sensor configation is located within the <code class="code docutils literal notranslate"><span class="pre">[NO2]</span></code> section.</p>
+<p>The NO2 module uses an electrochemical sensor and its sensitivity must be configured, otherwise the application will ignore it.
+The sensitivity is printed on a label underneath the sensor element, which is the small square board plugged into the top of the 3-board stack.
+The sensitivity value may also have been provided to you along with the module.</p>
+<p>Example config:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">NO2</span><span class="p">]</span>
+<span class="n">sensitivity</span> <span class="o">=</span> <span class="o">-</span><span class="mf">21.08</span>
+</pre></div>
+</div>
+<table class="colwidths-auto docutils align-default" id="id3">
+<caption><span class="caption-text">Mandatory parameters</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">sensitivity</span></code></p></td>
+<td><p>Value</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="gps">
+<h2><span class="section-number">2.4. </span>GPS<a class="headerlink" href="#gps" title="Permalink to this headline"></a></h2>
+<p>The ESDK Main board contains a GPS receiver, but this is not used by default and instead sensor measurements are labelled with the geolocation set in the configuration file. The GPS receiver can be enabled with the following setting in the <code class="code docutils literal notranslate"><span class="pre">[ESDK]</span></code> section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gps</span> <span class="o">=</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>However, a GPS antenna must be connected and able to see the sky. This is intended for use with future mobile use cases, whereas with static use it is strongly recommended that this be turned off, using a hardcoded latitude + longitude in the configuration file instead.</p>
+</section>
+<section id="csv-logging">
+<h2><span class="section-number">2.5. </span>CSV logging<a class="headerlink" href="#csv-logging" title="Permalink to this headline"></a></h2>
+<p>Logging comma-seperated values of sensor measurements to a file can be enabled by setting <code class="code docutils literal notranslate"><span class="pre">csv</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <code class="code docutils literal notranslate"><span class="pre">[local]</span></code> section of the configuration file. Simply add to aq.toml:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">local</span><span class="p">]</span>
+<span class="n">csv</span> <span class="o">=</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>CSV files will be saved to <code class="code docutils literal notranslate"><span class="pre">/aq/data/</span></code>.</p>
+<p>Data can be copied off using <code class="code docutils literal notranslate"><span class="pre">scp</span></code> or by inserting the Micro SD card into another Linux computer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">/aq</span></code> partition is formatted with the ext4 filesystem, since this uses journalling and is more robust than fat32. However, it does mean that the partition cannot be easily read on Windows computers.</p>
+</div>
+</section>
+<section id="mqtt">
+<h2><span class="section-number">2.6. </span>MQTT<a class="headerlink" href="#mqtt" title="Permalink to this headline"></a></h2>
+<p>Publishing sensor readings to an MQTT broker can be enabled by adding an <code class="code docutils literal notranslate"><span class="pre">[mqtt]</span></code> section with the appropriate configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">mqtt</span><span class="p">]</span>
+<span class="n">broker</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+<span class="n">basetopic</span> <span class="o">=</span> <span class="s2">&quot;airquality&quot;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>The above example will configure the application to publish to the Mosquitto broker which is preinstalled, with a base topic of <code class="code docutils literal notranslate"><span class="pre">airquality</span></code>. Alternatively, a remote broker may be specified and if required, login details provided.</p>
+</section>
+<section id="cloud-integration">
+<h2><span class="section-number">2.7. </span>Cloud integration<a class="headerlink" href="#cloud-integration" title="Permalink to this headline"></a></h2>
+<p>The <a class="reference external" href="https://docs.designspark.io/en/latest/cloud/index.html" title="(in DesignSpark Documentation)"><span class="xref std std-doc">DesignSpark Cloud</span></a> platform uses the Prometheus time series database and the application may be configured to publish to one or more API endpoints, which are configured via <code class="code docutils literal notranslate"><span class="pre">[prometheus.*]</span></code> sections.</p>
+<p>Typically there will be a <code class="code docutils literal notranslate"><span class="pre">[prometheus.private]</span></code> section for private dashboards and a <code class="code docutils literal notranslate"><span class="pre">[prometheus.aqpublic]</span></code> section for collaborative dashboards.</p>
+<p>The configuration for private vs. public dashboards is subtly different and <strong>due care must be exercised when configuring</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will only be able to complete this configuration if you have been provisioned on DesignSpark Cloud and enrolled with a username and password etc.</p>
+</div>
+<section id="private-dashboards">
+<h3><span class="section-number">2.7.1. </span>Private dashboards<a class="headerlink" href="#private-dashboards" title="Permalink to this headline"></a></h3>
+<p>Each DesignSpark Cloud user is provisioned with a dedicated Prometheus database instance. Publishing to this may be configured with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">prometheus</span><span class="o">.</span><span class="n">private</span><span class="p">]</span>
+<span class="n">instance</span> <span class="o">=</span> <span class="s2">&quot;&lt;INSTANCE&gt;&quot;</span>
+<span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;&lt;SECRET_KEY&gt;&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://prometheus-prod-01-eu-west-0.grafana.net/api/prom/push&quot;</span>
+<span class="n">interval</span> <span class="o">=</span> <span class="mi">120</span>
+</pre></div>
+</div>
+<p>Using the instance ID and publisher key that were provided to you by support.</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">interval</span></code> parameter specifies the publishing period in seconds, the minimum value for which is 120 (2 minutes).</p>
+</section>
+<section id="public-dashboards">
+<h3><span class="section-number">2.7.2. </span>Public dashboards<a class="headerlink" href="#public-dashboards" title="Permalink to this headline"></a></h3>
+<p>Users may also be invited to contribute data to public dashboards, which may be configured with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">prometheus</span><span class="o">.</span><span class="n">aqpublic</span><span class="p">]</span>
+<span class="n">instance</span> <span class="o">=</span> <span class="s2">&quot;&lt;EMAIL&gt;&quot;</span>
+<span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;&lt;PASSWORD&gt;&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://aq-prom.designspark.io/prometheus&quot;</span>
+<span class="n">interval</span> <span class="o">=</span> <span class="mi">300</span>
+</pre></div>
+</div>
+<p>The configuration used here is slightly different and must be set as follows:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">instance</span></code> value is the login (e-mail) address used to register with DesignSpark Cloud.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">key</span></code> value is the password that you set when you activated your DesignSpark Cloud account.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Your RS Components or DesignSpark website username and password will not work here!</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you enter the wrong password it may cause your DesignSpark Cloud account to become locked-out. If you need to change this password, you should first take your device offline, change the password and then update this in your device config before powering it up again.</p>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">interval</span></code> parameter specifies the publishing period in seconds, the minimum value for which is 300 (5 minutes).</p>
+</section>
+</section>
+<section id="complete-example">
+<h2><span class="section-number">2.8. </span>Complete example<a class="headerlink" href="#complete-example" title="Permalink to this headline"></a></h2>
+<p>A configuration example that uses all the available parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">ESDK</span><span class="p">]</span>
+<span class="n">friendlyname</span> <span class="o">=</span> <span class="s2">&quot;acmecorp&quot;</span>
+<span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;collabproject&quot;</span>
+<span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;workshop&quot;</span>
+<span class="n">tag</span> <span class="o">=</span> <span class="s2">&quot;unheated&quot;</span>
+<span class="n">latitude</span> <span class="o">=</span> <span class="mf">53.7130128</span>
+<span class="n">longitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.9391832</span>
+<span class="n">debug</span> <span class="o">=</span> <span class="n">false</span>
+<span class="n">gps</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="p">[</span><span class="n">NO2</span><span class="p">]</span>
+<span class="n">sensitivity</span> <span class="o">=</span> <span class="o">-</span><span class="mf">21.08</span>
+
+<span class="p">[</span><span class="n">local</span><span class="p">]</span>
+<span class="n">csv</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="p">[</span><span class="n">mqtt</span><span class="p">]</span>
+<span class="n">broker</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+<span class="n">basetopic</span> <span class="o">=</span> <span class="s2">&quot;airquality&quot;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="p">[</span><span class="n">prometheus</span><span class="o">.</span><span class="n">private</span><span class="p">]</span>
+<span class="n">instance</span> <span class="o">=</span> <span class="s2">&quot;1234567890&quot;</span>
+<span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;mkfjjknikohihfi8hfihueftue7efbjbwjfef8ywefhewhfi8eyf89wefhwefh89efu89e8fh89gdw67&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://prometheus-prod-01-eu-west-0.grafana.net/api/prom/push&quot;</span>
+<span class="n">interval</span> <span class="o">=</span> <span class="mi">120</span>
+
+<span class="p">[</span><span class="n">prometheus</span><span class="o">.</span><span class="n">aqpublic</span><span class="p">]</span>
+<span class="n">instance</span> <span class="o">=</span> <span class="s2">&quot;username@domain.com&quot;</span>
+<span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;mySecretPassword&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://aq-prom.designspark.io/prometheus&quot;</span>
+<span class="n">interval</span> <span class="o">=</span> <span class="mi">300</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Don’t simply cut and paste this into your aq.toml file! Read the above guidance and configure appropriately.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="1. Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="use.html" class="btn btn-neutral float-right" title="3. Use" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, RS Components.
+      <span class="lastupdated">Last updated on Oct 06, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

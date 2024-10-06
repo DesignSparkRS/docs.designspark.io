@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. API &mdash; DesignSpark.Cloud  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/ds-custom.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/DS_favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Example Applications" href="examples.html" />
+    <link rel="prev" title="DesignSpark.Cloud" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> DesignSpark.Cloud
+            <img src="_static/DS_logo_200w.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-DesignSpark.Cloud.Metrics">1.1. <code class="xref py py-mod docutils literal notranslate"><span class="pre">DesignSpark.Cloud.Metrics</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">2. Example Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#simple-writer-py">2.1. <code class="docutils literal notranslate"><span class="pre">simple_writer.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#simple-reader-py">2.2. <code class="docutils literal notranslate"><span class="pre">simple_reader.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#mqtt2dsm-py">2.3. <code class="docutils literal notranslate"><span class="pre">mqtt2dsm.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#batterytest-py">2.4. <code class="docutils literal notranslate"><span class="pre">BatteryTest.py</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#command-line-switches">2.4.1. Command line switches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#code-explanation">2.4.2. Code explanation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DesignSpark.Cloud</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">1. </span>API</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/DesignSparkRS/DesignSpark.Cloud/blob/master//docs/ api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1><span class="section-number">1. </span>API<a class="headerlink" href="#api" title="Permalink to this headline"></a></h1>
+<section id="module-DesignSpark.Cloud.Metrics">
+<span id="designspark-cloud-metrics"></span><h2><span class="section-number">1.1. </span><a class="reference internal" href="#module-DesignSpark.Cloud.Metrics" title="DesignSpark.Cloud.Metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DesignSpark.Cloud.Metrics</span></code></a><a class="headerlink" href="#module-DesignSpark.Cloud.Metrics" title="Permalink to this headline"></a></h2>
+<p>DesignSpark Cloud metrics interface</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="DesignSpark.Cloud.Metrics.Metric">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">DesignSpark.Cloud.Metrics.</span></span><span class="sig-name descname"><span class="pre">Metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backendType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'prometheus'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DesignSpark.Cloud.Metrics.Metric" title="Permalink to this definition"></a></dt>
+<dd><p>This class handles interfacing with the DesignSpark Cloud.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>backendType</strong> (<em>string</em><em>, </em><em>optional</em>) – A string containing “prometheus”. Defaults to “prometheus”.</p></li>
+<li><p><strong>instance</strong> (<em>string</em>) – DSM Instance number</p></li>
+<li><p><strong>key</strong> (<em>string</em>) – DSM authentication key</p></li>
+<li><p><strong>url</strong> (<em>string</em>) – DSM URL</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Prometheus is currently the only supported backend. Additional backends will be available in future.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="DesignSpark.Cloud.Metrics.Metric.getReadURI">
+<span class="sig-name descname"><span class="pre">getReadURI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DesignSpark.Cloud.Metrics.Metric.getReadURI" title="Permalink to this definition"></a></dt>
+<dd><p>Helper function that returns a connection URL to DSM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string configured with DesignSpark Cloud connection details</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DesignSpark.Cloud.Metrics.Metric.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DesignSpark.Cloud.Metrics.Metric.write" title="Permalink to this definition"></a></dt>
+<dd><p>Writes a single data point to the specfied cloud.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – A dictionary containing the metric data to be published. Labels are optional and multiple can be supplied, <cite>name</cite> and <cite>value</cite> keys are mandatory.</p>
+</dd>
+</dl>
+<p>The metric value should only be a float or integer, other types will be casted using <cite>float()</cite> which may fail.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{
+    &quot;name&quot;: &quot;metric name&quot;,
+    &quot;value&quot;: 123,
+    &quot;label1&quot;: &quot;a label&quot;,
+    &quot;label2&quot;: &quot;another label&quot;
+}
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True on successful publish, a list containing False, status code and reason on unsuccessful publish.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>boolean, list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="DesignSpark.Cloud" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="2. Example Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, RS Components.
+      <span class="lastupdated">Last updated on Oct 06, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

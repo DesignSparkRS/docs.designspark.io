@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESDK Air Quality Application (aq-device) &mdash; Air Quality Device  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/ds-custom.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/DS_favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> Air Quality Device
+            <img src="_static/DS_logo_200w.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">2. Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#editing">2.1. Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#base-config">2.2. Base config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html#mandatory">2.2.1. Mandatory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html#optional">2.2.2. Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#sensor-config">2.3. Sensor config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html#no2">2.3.1. NO2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#gps">2.4. GPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#csv-logging">2.5. CSV logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#mqtt">2.6. MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#cloud-integration">2.7. Cloud integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html#private-dashboards">2.7.1. Private dashboards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html#public-dashboards">2.7.2. Public dashboards</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#complete-example">2.8. Complete example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="use.html">3. Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="use.html#basic">3.1. Basic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="use.html#device-dashboard">3.1.1. Device dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use.html#lan-dashboard">3.1.2. LAN dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use.html#csv-logging">3.1.3. CSV logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use.html#gps">3.1.4. GPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use.html#shutting-down">3.1.5. Shutting down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use.html#restarting">3.1.6. Restarting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="use.html#mqtt">3.2. MQTT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">4. Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#status">4.1. Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#debug-mode">4.2. Debug mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#typical-problems">4.3. Typical problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">5. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#user-account">5.1. User account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#mqtt">5.2. MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#websocket-api">5.3. WebSocket API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Air Quality Device</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>ESDK Air Quality Application (aq-device)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/DesignSparkRS/aq-device/blob/master//docs/ index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="esdk-air-quality-application-aq-device">
+<h1>ESDK Air Quality Application (aq-device)<a class="headerlink" href="#esdk-air-quality-application-aq-device" title="Permalink to this headline"></a></h1>
+<img alt="Air Quality application local display" src="https://raw.githubusercontent.com/DesignSparkRS/aq-device/main/docs/images/aq-display.jpg" />
+<p>DesignSpark Air Quality Project application for the <a class="reference external" href="https://www.rs-online.com/designspark/introducing-the-environmental-sensor-development-kit">Environmental Sensor Development Kit (ESDK) hardware</a>.</p>
+<p>The aq-device application:</p>
+<ul class="simple">
+<li><p>Reads sensors</p></li>
+<li><p>Provides a local display</p></li>
+<li><p>Optionally:</p>
+<ul>
+<li><p>Publishes measurements to one or more remote time series databases</p></li>
+<li><p>Logs measurements to a local CSV file</p></li>
+</ul>
+</li>
+</ul>
+<p>Hardware access is via the <a class="reference external" href="https://docs.designspark.io/projects/esdk-library/en/latest/index.html" title="(in DesignSpark.ESDK)"><span class="xref std std-doc">DesignSpark.ESDK library</span></a>.</p>
+<p>Configuration is via a single TOML file.</p>
+<section id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>dashboard</p></td>
+<td><p>HTML + JavaScript local UI</p></td>
+</tr>
+<tr class="row-odd"><td><p>docs</p></td>
+<td><p>RST documentation sources</p></td>
+</tr>
+<tr class="row-even"><td><p>firmware</p></td>
+<td><p>Python application</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h2>
+<p>Documentation is available on <a class="reference external" href="https://docs.designspark.io/projects/aq-device">docs.designspark.io</a>.</p>
+</section>
+<section id="licence">
+<h2>Licence<a class="headerlink" href="#licence" title="Permalink to this headline"></a></h2>
+<p>The aq-device project is copyright 2021, 2022 RS Components Ltd and licensed under the the Apache License, Version 2.0.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-right" title="1. Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, RS Components.
+      <span class="lastupdated">Last updated on Oct 06, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
