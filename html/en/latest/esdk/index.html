@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Environmental Sensor Development Kit &mdash; DesignSpark Documentation  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/ds-custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/DS_favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Maintainer Documentation" href="../maintainer/index.html" />
+    <link rel="prev" title="Taxonomy" href="../aq/taxonomy.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> DesignSpark Documentation
+            <img src="../_static/DS_logo_200w.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">DesignSpark Cloud</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/account.html">Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloud/account.html#registration">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloud/account.html#password">Password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/metrics/index.html">Metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloud/metrics/index.html#prometheus">Prometheus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloud/metrics/index.html#grafana">Grafana</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cloud/metrics/index.html#home-dashboard">Home dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cloud/metrics/index.html#copying-a-dashboard">Copying a dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cloud/metrics/index.html#editing-dashboards">Editing dashboards</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/developer/index.html">Developer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloud/developer/index.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/cloud-library/en/latest">Python Library</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../aq/index.html">Air Quality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../aq/index.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/aq-device/en/latest/">Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aq/dashboards.html">Dashboards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aq/dashboards.html#private">Private</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aq/dashboards.html#public">Public</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../aq/data.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aq/taxonomy.html">Taxonomy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aq/taxonomy.html#location">Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aq/taxonomy.html#project">Project</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ESDK</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/esdk-library/">Python Library</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/esdk-hardware/">Hardware Designs</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Maintainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../maintainer/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintainer/docs/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../maintainer/docs/tooling.html">Tooling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/tooling.html#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/tooling.html#use">Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../maintainer/docs/formatting.html">Formatting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/formatting.html#general">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/formatting.html#linking-to-other-project-documentation">Linking to other project documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/formatting.html#subscript-and-superscript">Subscript and Superscript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/formatting.html#non-ascii-characters">Non-ASCII Characters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DesignSpark Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Environmental Sensor Development Kit</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/DesignSparkRS/DSDocs/blob/master/esdk/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="environmental-sensor-development-kit">
+<h1>Environmental Sensor Development Kit<a class="headerlink" href="#environmental-sensor-development-kit" title="Permalink to this headline"></a></h1>
+<img alt="ESDK Main board and sensor chain." src="../_images/ESDK_chain.jpg" />
+<p>The DesignSpark Environmental Sensor Development Kit (ESDK) is an open source hardware platform that is designed to make it as easy as possible to prototype custom sensor solutions. It has been created to support the engineer activism Air Quality project, but could easily be put to use in other sensing projects — and for that matter, potentially a great many more IoT and wider applications that have a need for a small Linux computer with integrated touchscreen and GPS etc.</p>
+<p>The ESDK uses a Raspberry Pi SBC for processing and is currently comprised of the following modules:</p>
+<ul class="simple">
+<li><p><strong>Main</strong>. Main board which connects to the Raspberry Pi and provides a colour LCD screen, RTC, GPS, buttons and buzzer.</p></li>
+<li><p><strong>PEA</strong>. Small PCB at the start of the sensor chain, cabled to the Main board.</p></li>
+<li><p><strong>THV</strong>. Temperature, humidity and volatile organic compounds (VOC) sensor.</p></li>
+<li><p><strong>CO2</strong>. CO2 sensor.</p></li>
+<li><p><strong>PM2</strong>. Particulate matter sensor.</p></li>
+<li><p><strong>NO2</strong>. NO2 sensor.</p></li>
+<li><p><strong>FLD</strong>. Formaldehyde sensor.</p></li>
+<li><p><strong>NRD</strong>. Nuclear radiation detector.</p></li>
+<li><p><strong>CRE-A &amp; CRE-B</strong>. Cabled range extender board set.</p></li>
+<li><p><strong>EEA</strong>. Ecosystem adapter board which transitions to Pmod, Qwiic and Grove systems.</p></li>
+</ul>
+<p>The Main board is connected to the Raspberry Pi P1 header and is cabled to the PEA board, which is at the start of the sensor chain. Each sensor has a connector on either side, allowing them to be connected together in chain.</p>
+<p>The CRE boards permit the chain to be extended over longer distances, by converting the I2C interface into differential signals. The <em>A</em> board is located at the end closest to the Main board, while the <em>B</em> board is placed at the remote location, at the start of the extended sensor chain. The board set also provides power, with conversion to allow for a voltage drop over longer cable runs. Regular twisted pair Ethernet cable is used to connect the boards.</p>
+<p>The EEA board may also be connected at the end of a sensor chain and transitions from the ESDK connector, to standard Pmod, Qwiic and Grove connectors. Thereby making it easy to connect third party sensors to the ESDK.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../aq/taxonomy.html" class="btn btn-neutral float-left" title="Taxonomy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../maintainer/index.html" class="btn btn-neutral float-right" title="Maintainer Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, RS Components.
+      <span class="lastupdated">Last updated on Oct 06, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

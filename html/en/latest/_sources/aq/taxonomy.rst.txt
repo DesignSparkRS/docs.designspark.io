@@ -1,0 +1,70 @@
+Taxonomy
+########
+
+An taxonomy is being developed so as to ensure consistency in the labelling of
+data gathered and avoid multiple labels being used for the same thing. 
+
+Should it be neccessary to extend the taxonomy, e.g. to add a missing location,
+there are two routes to achieving this:
+
+#. Submit a pull request to modify this page (see Edit on GitHub link top-right)
+#. Raise a `support ticket`_ (Air Quality Project - Cloud Support)
+
+Location
+********
+
+.. list-table:: 
+   :widths: auto
+   :header-rows: 1
+
+   * - Value
+     - Description
+   * - livingroom
+     - Main living space
+   * - kitchen
+     - Domestic or commercial kitchen
+   * - utilityroom
+     - Utility room, e.g. laundry etc.
+   * - hallway
+     - Hallway (any floor)
+   * - diningroom
+     - Dining room
+   * - bedroom
+     - Bedroom
+   * - office
+     - Home or business office
+   * - attic
+     - Attic
+   * - basement
+     - Basement
+   * - conservatory
+     - Conservatory 
+   * - garage
+     - Garage
+   * - greenhouse
+     - Greenhouse
+   * - shed
+     - Shed
+   * - workshop
+     - Home, work or makerspace workshop
+   * - outdoor
+     - Any outdoor location, e.g. house wall or garden etc.
+   * - conference
+     - Conference centre or other venue hosting an event
+   * - mixed
+     - Sensors at more than one location, e.g. using Cabled Range Extender (CRE) boards
+
+Project
+*******
+
+.. list-table::
+   :widths: auto
+   :header-rows: 1
+
+   * - Value
+     - Description
+   * - makerspace
+     - Makerspace/hackerspace subproject. 
+   * - maltaschools
+     - Malta schools subproject.
+

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metrics &mdash; DesignSpark Documentation  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/ds-custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/DS_favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Cloud Developer Documentation" href="../developer/index.html" />
+    <link rel="prev" title="Account" href="../account.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> DesignSpark Documentation
+            <img src="../../_static/DS_logo_200w.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">DesignSpark Cloud</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../account.html">Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../account.html#registration">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../account.html#password">Password</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prometheus">Prometheus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grafana">Grafana</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#home-dashboard">Home dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copying-a-dashboard">Copying a dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-dashboards">Editing dashboards</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/index.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/cloud-library/en/latest">Python Library</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../aq/index.html">Air Quality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../aq/index.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/aq-device/en/latest/">Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aq/dashboards.html">Dashboards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aq/dashboards.html#private">Private</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aq/dashboards.html#public">Public</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aq/data.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aq/taxonomy.html">Taxonomy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aq/taxonomy.html#location">Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aq/taxonomy.html#project">Project</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../esdk/index.html">ESDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../esdk/index.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/esdk-library/">Python Library</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/esdk-hardware/">Hardware Designs</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Maintainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../maintainer/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../maintainer/docs/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../maintainer/docs/tooling.html">Tooling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../maintainer/docs/tooling.html#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../maintainer/docs/tooling.html#use">Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../maintainer/docs/formatting.html">Formatting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../maintainer/docs/formatting.html#general">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../maintainer/docs/formatting.html#linking-to-other-project-documentation">Linking to other project documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../maintainer/docs/formatting.html#subscript-and-superscript">Subscript and Superscript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../maintainer/docs/formatting.html#non-ascii-characters">Non-ASCII Characters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DesignSpark Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Metrics</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/DesignSparkRS/DSDocs/blob/master/cloud/metrics/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="metrics">
+<h1>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline"></a></h1>
+<p>The DesignSpark Metrics platform provides time series data storage and visualisation. It is built upon the Prometheus time series database (TSDB) and Grafana analytics and visualisation software.</p>
+<section id="prometheus">
+<h2>Prometheus<a class="headerlink" href="#prometheus" title="Permalink to this headline"></a></h2>
+<p>When access to DesignSpark Metrics is provisioned you will be provided with an <code class="code docutils literal notranslate"><span class="pre">instance</span></code> ID and at least one <code class="code docutils literal notranslate"><span class="pre">key</span></code> for accessing the instance. These should be kept secret and not shared or otherwise disclosed to any third parties.</p>
+<p>Keys can be of the metricsPublisher (R/W) or Viewer (R/O) type and it’s important that the correct type is used in applications. For example, attempting to use a Viewer key in an application that needs to publish metrics will result in failure.</p>
+</section>
+<section id="grafana">
+<h2>Grafana<a class="headerlink" href="#grafana" title="Permalink to this headline"></a></h2>
+<p>The Grafana web application is accessed via <a class="reference external" href="https://metrics.designspark.io">metrics.designspark.io</a>. A DesignSpark Cloud <a class="reference internal" href="../account.html"><span class="doc">account</span></a> is required to log in and your DesignSpark or RS Components website credentials will not work.</p>
+<section id="home-dashboard">
+<h3>Home dashboard<a class="headerlink" href="#home-dashboard" title="Permalink to this headline"></a></h3>
+<p>A dashboard can be set to be the home dashboard, such that this is immediately displayed whenever you log in. Next we will demonstrate how this can be done with the default <a class="reference internal" href="../../aq/index.html"><span class="doc">Air Quality Project</span></a> dashboard.</p>
+<img alt="Grafana default dashboard." src="../../_images/Metrics_default_home_dashboard.jpg" />
+<p>Above can be seen the default Grafana home dashboard, which displays some headline statistics and useful links. To browse our other dashboards we use the left-hand menu and select <em>Dashboards</em> (four squares icon), followed by <em>Browse</em>.</p>
+<img alt="Browsing the dashboards." src="../../_images/Metrics_AQ_default_dashboards.jpg" />
+<p>Here we can see we have a folder named after our DesignSpark Cloud UID, which for this user is <em>dsm1</em>. As an Air Quality project member, the user has been provisioned with a default dashboard named <em>AQ Default v1</em>, which we can select.</p>
+<img alt="Starring the default Air Quality project dashboard." src="../../_images/Metrics_AQ_default_star.jpg" />
+<p>To set this as our home dashboard we need to first <em>star</em> it, by clicking on the star icon top-left.</p>
+<img alt="Selecting preferences." src="../../_images/Metrics_AQ_default_menu_preferences.jpg" />
+<p>To now set our home dashboard we need to select <em>Preferences</em> via the menu on the user icon bottom-left.</p>
+<img alt="Setting the home dashboard." src="../../_images/Metrics_AQ_default_preferences_page.jpg" />
+<p>Finally, we can select the <em>Home Dashboard</em>, followed by <em>Save</em>.</p>
+</section>
+<section id="copying-a-dashboard">
+<h3>Copying a dashboard<a class="headerlink" href="#copying-a-dashboard" title="Permalink to this headline"></a></h3>
+<p>It is strongly recommended to copy default dashboards and make changes to copies, rather than the original. This way if mistakes are made, the default can be copied again. It is also possible that new default dashboards will be rolled out in future, which may involve deleting the old default dashboard.</p>
+<img alt="Selecting preferences." src="../../_images/Metrics_AQ_default_menu_settings.jpg" />
+<p>To copy a dashboard, select <em>Dashboard settings</em> (gear icon, highlighted red).</p>
+<img alt="Selecting Save As..." src="../../_images/Metrics_AQ_default_dashboard_settings.jpg" />
+<p>Next, select <em>Save As…</em>.</p>
+<img alt="Entering a name and saving." src="../../_images/Metrics_AQ_default_dashboard_saveas.jpg" />
+<p>Finally, enter a new name for the dashboard and select <em>Save</em>.</p>
+</section>
+<section id="editing-dashboards">
+<h3>Editing dashboards<a class="headerlink" href="#editing-dashboards" title="Permalink to this headline"></a></h3>
+<p>For details of how to edit and create new dashboards, see the <a class="reference external" href="https://grafana.com/docs/grafana/latest/">Grafana documentation</a>. However, note that anything in connection with installing software or administration tasks etc. will not be relevant.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../account.html" class="btn btn-neutral float-left" title="Account" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../developer/index.html" class="btn btn-neutral float-right" title="Cloud Developer Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, RS Components.
+      <span class="lastupdated">Last updated on Oct 06, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

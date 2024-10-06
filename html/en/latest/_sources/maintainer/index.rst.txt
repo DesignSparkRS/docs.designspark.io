@@ -1,0 +1,6 @@
+Maintainer Documentation
+########################
+
+This information is provided for project maintainers, and includes things such as how to set up the tooling for and maintain project documentation. Over time this will be expanded upon to cover topics such as software packaging. 
+
+If you are building on top of projects documented here and are not involved in their development, this section of the docs likely won't be relevant. That is unless you find an error in project documentation or packaging etc. and would like to submit a GitHub pull request which implements a fix.

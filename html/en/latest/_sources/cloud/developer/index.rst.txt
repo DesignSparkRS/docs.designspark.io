@@ -1,0 +1,15 @@
+Cloud Developer Documentation
+#############################
+
+Here you can find documentation for developing applications which make use of DesignSpark Cloud. 
+
+Metrics is the first service to be introduced as part of the DesignSpark Cloud platform and this provides a hosted time series database, plus web visualation and analytics, which are based on the Prometheus and Grafana technologies. 
+
+A Python library is being developed to make it easier to create applications which make use of the Cloud platform.
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   Introduction <self>
+   Python Library <https://docs.designspark.io/projects/cloud-library/en/latest>

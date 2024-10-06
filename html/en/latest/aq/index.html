@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Air Quality Project &mdash; DesignSpark Documentation  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/ds-custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/DS_favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Air Quality Dashboards" href="dashboards.html" />
+    <link rel="prev" title="Cloud Developer Documentation" href="../cloud/developer/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> DesignSpark Documentation
+            <img src="../_static/DS_logo_200w.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">DesignSpark Cloud</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/account.html">Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloud/account.html#registration">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloud/account.html#password">Password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/metrics/index.html">Metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloud/metrics/index.html#prometheus">Prometheus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloud/metrics/index.html#grafana">Grafana</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cloud/metrics/index.html#home-dashboard">Home dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cloud/metrics/index.html#copying-a-dashboard">Copying a dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cloud/metrics/index.html#editing-dashboards">Editing dashboards</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/developer/index.html">Developer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloud/developer/index.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/cloud-library/en/latest">Python Library</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Air Quality</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/aq-device/en/latest/">Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dashboards.html">Dashboards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dashboards.html#private">Private</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dashboards.html#public">Public</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taxonomy.html">Taxonomy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="taxonomy.html#location">Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="taxonomy.html#project">Project</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../esdk/index.html">ESDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../esdk/index.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/esdk-library/">Python Library</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.designspark.io/projects/esdk-hardware/">Hardware Designs</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Maintainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../maintainer/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintainer/docs/index.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../maintainer/docs/tooling.html">Tooling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/tooling.html#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/tooling.html#use">Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../maintainer/docs/formatting.html">Formatting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/formatting.html#general">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/formatting.html#linking-to-other-project-documentation">Linking to other project documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/formatting.html#subscript-and-superscript">Subscript and Superscript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maintainer/docs/formatting.html#non-ascii-characters">Non-ASCII Characters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DesignSpark Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Air Quality Project</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/DesignSparkRS/DSDocs/blob/master/aq/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="air-quality-project">
+<h1>Air Quality Project<a class="headerlink" href="#air-quality-project" title="Permalink to this headline"></a></h1>
+<p>Air quality is a growing problem worldwide. DesignSpark has developed an open-source, cloud-connected, sensor platform as part of a wider programme of engineer activism. You can find out more about this and the contributor community via the <a class="reference external" href="https://www.rs-online.com/designspark/air-quality-project">DesignSpark website</a>.</p>
+<p>In the left-hand navigation you can find links for the Air Quality Project technical reference documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Air Quality project is currently operating as an invitation-only “closed beta”.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../cloud/developer/index.html" class="btn btn-neutral float-left" title="Cloud Developer Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dashboards.html" class="btn btn-neutral float-right" title="Air Quality Dashboards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, RS Components.
+      <span class="lastupdated">Last updated on Oct 06, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
